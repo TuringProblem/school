@@ -13,8 +13,6 @@ public class PrimeNumbers_AW {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Please enter your first value: ");
         a = keyboard.nextInt();
-/*        System.out.println("Please enter your second value: ");
-        b = keyboard.nextInt();*/
 
         System.out.println("You're number is prime: " + determineIfPrime(a));
         System.out.println("You're sophie germain number is prime: " + isSophieGermainPrime(a));
@@ -23,25 +21,13 @@ public class PrimeNumbers_AW {
     }
 
     public static boolean isSophieGermainPrime(int number) {
-        boolean isPrime = true;
-        if (determineIfPrime(number) && determineIfPrime(2 * number + 1)) {
-            return true;
-        }
-        return false;
+        return determineIfPrime(number) && determineIfPrime(2 * number + 1);
     }
    public static boolean isTwinPrime(int number) {
-       boolean isPrime = true;
-       if (determineIfPrime(number) && determineIfPrime(number + 2)) {
-           return true;
-       }
-       return false;
-    }
+       return determineIfPrime(number) && determineIfPrime(number + 2);
+   }
     public static boolean isMersennePrime(int number) {
-        boolean isPrime = true;
-        if (determineIfPrime(number) && determineIfPrime(2 * number - 1)) {
-            return true;
-        }
-        return false;
+        return determineIfPrime(number) && determineIfPrime(2 * number - 1);
     }
 
     public static boolean determineIfPrime(int valuePassed) {
