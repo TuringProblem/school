@@ -20,7 +20,7 @@ public class CarnivalGame_AW {
         dieFour = dieRoll(4);
         dieFive = dieRoll(12);
         sum = dieOne + dieTwo + dieThree + dieFour + dieFive;
-        if (sum < 20 && sum > 35) {
+        if (sum < 20 || sum > 35) {
             wins++;
         } else {
             lose++;
