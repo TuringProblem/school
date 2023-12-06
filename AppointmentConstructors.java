@@ -21,8 +21,25 @@ public class AppointmentConstructors {
 
     public AppointmentConstructors(String monthPassed, int dayPassed, int yearPassed, int hourPassed, int minutePassed) {
         this.setMonth(monthPassed);
-        this.setDay(dayPassed);
+
         this.setYear(yearPassed);
+        if(monthPassed.equals("February")) {
+            if (yearPassed % 4 == 0) {
+                do {
+                    System.out.println("LEAP YEAR!\n Please enter a new day for this month: ");
+                    dayPassed = keyboard.nextInt();
+                    this.setDay(dayPassed);
+                } while (dayPassed <= 29);
+            }
+            if (yearPassed % 4 != 0 ) {
+                while (dayPassed > 28) {
+                    System.out.println("Please enter a new day for this month: ");
+                    dayPassed = keyboard.nextInt();
+                    this.setDay(dayPassed);
+                }
+            }
+        }
+        this.setDay(dayPassed);
         this.setHour(hourPassed);
         this.setMinute(minutePassed);
 
