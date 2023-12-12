@@ -19,10 +19,34 @@ public class Scores_AW {
    public static void main(String[] args) {
       //return back an array
       int[] scores = createPopulateArrayOfInts(); 
-      System.out.println(Arrays.toString(scores));    
-         
+      int sum = 0;
+      double average;
+      int numberAbove = 0, numberBelow = 0, numberEqual = 0;
+      Arrays.sort(scores);
+      System.out.println(Arrays.toString(scores)); 
+      System.out.println("Highest: " + scores[scores.length - 1]);
+      System.out.println("Lowest: " + scores[0]);   
+      
+      for (int i = 0; i < scores.length; ++i) {
+         sum += scores[i];
+      }
+      average = (double)sum / scores.length;
+      System.out.println("Average: " + average);
+      for (int i = 0; i < scores.length; ++i) {
+         if (scores[i] > average)  {
+            ++numberAbove;
+         } else if (scores[i] < average)  {
+            ++numberBelow;
+         } else {
+            ++numberEqual;
+         }
+      }
+      System.out.println("Above Average: " + numberAbove);
+      System.out.println("Below Average: " + numberBelow);
+      System.out.println("Equals Average: " + numberEqual);   
    
    }
+   
    //create a method and populate the array
    public static int[] createPopulateArrayOfInts() {
       Scanner kb = new Scanner(System.in);
@@ -44,6 +68,10 @@ public class Scores_AW {
       }
       return theArray;
    }//end array method   
+   
+//    public static int[] mean(int[] arrayPassed) {
+//      
+//    }
 
 
 }
