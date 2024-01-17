@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Appointment {
-   
+   Scanner KEYBOARD = new Scanner(System.in);
    private String month;
    private int day;
    private int year;
@@ -20,8 +20,13 @@ public class Appointment {
     //1 non-default constructor that accepts arguments for all instance variables, your constructor must call the setter methods below to set the values of the instance variables
    
     public Appointment(String monthPassed, int dayPassed, int yearPassed, int hourPassed, int minutePassed) {
-      return 
-      
+      return this.month = setMonth(monthPassed) +
+              this.day = setDay(dayPassed) +
+              this.year = setYear(yearPassed) +
+              this.hour = setHour(hourPassed) +
+              this.minute = setMinute(minutePassed);
+
+
     }
    
    //5 setter methods (one for each instance variable) with these limits:
@@ -35,7 +40,7 @@ public class Appointment {
    
       while (monthPassed.equals("January") == false && monthPassed.equals("February") == false) {
          System.out.println("Invalid month, please re-enter the month: ");
-         monthPassed = keyboard.nextLine();
+         monthPassed = KEYBOARD.nextLine();
       }
       
       this.month = monthPassed;
@@ -48,10 +53,10 @@ public class Appointment {
    //trap the user until they enter a valid hour
    
    public void setHour(int hourPassed) {
-    Scanner keyboard = new Scanner(System.in);
+    Scanner KEYBOARD = new Scanner(System.in);
     while(hourPassed < 0 || hourPassed > 23) {
       System.out.println("Invalid hour please re-enter: ");
-      hourPassed = keyboard.nextInt();
+      hourPassed = KEYBOARD.nextInt();
     }
     this.hour = hourPassed;
    }
@@ -74,7 +79,7 @@ public class Appointment {
    //not trap the user until they enter a valid minute
    
    public void setMinute(int minutePassed) {
-      
+      this.minute = minutePassed;
    
    }
    
@@ -88,7 +93,7 @@ public class Appointment {
    //remember to check if the year is a leap year
    
    public void setDay(int dayPassed, String monthPassed, int yearPassed) {
-   
+        this.day = dayPassed;
    }
    
     
